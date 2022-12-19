@@ -1,6 +1,4 @@
 package IDGenerate;
-//import java.io.*;
-//import java.util.*;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,8 +10,8 @@ import java.util.ArrayList;
  */
 public class Tester {
 
-    public static void nonmains(String[] passerBy) throws IOException {
-        String address = "D:\\Data II\\New folder (4)\\NetBeansProjects\\IDGenerators\\src\\IDGenerate\\Student.csv";
+    public static void nonMain(String[] passerBy) throws IOException {
+        String address = "C:\\Users\\User\\Documents\\GitHub\\IDGenerator\\Raw Java\\Student.csv";
 
         FileWriter studentInformation = null;
 
@@ -26,7 +24,7 @@ public class Tester {
             student.setInformationAutomatically(passerBy);
             student.year();
             student.gender();
-            student.catagory();
+            student.category();
             student.semester();
             student.slot();
             student.department();
@@ -39,25 +37,15 @@ public class Tester {
             studentInformation = new FileWriter(address, true);
             System.out.println("Successfully saved!");
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println(e.toString());
         }
 
         for (Student s : studentList) {
             s.printInformation();
-            studentInformation.append(s.id + ","
-                    + s.name + ","
-                    + s.fathername + ","
-                    + s.mothername + ","
-                    + s.mobile + ","
-                    + s.mail + ","
-                    + s.gender + ","
-                    + s.catagory + ","
-                    + s.department + ","
-                    + s.semester + ","
-                    + s.slot + ","
-                    + s.year + ","
-                    + s.gsuit + "\n");
+            assert studentInformation != null;
+            studentInformation.append(s.id).append(",").append(s.name).append(",").append(s.fatherName).append(",").append(s.motherName).append(",").append(s.mobile).append(",").append(s.mail).append(",").append(s.gender).append(",").append(s.category).append(",").append(s.department).append(",").append(s.semester).append(",").append(s.slot).append(",").append(s.year).append(",").append(s.gSuit).append("\n");
         }
+        assert studentInformation != null;
         studentInformation.close();
 
     }

@@ -1,18 +1,17 @@
 package IDGenerate;
 
-/**
- *
- * @author Tanvir
+/*
+  @author Tanvir
  */
+
 import java.util.Scanner;
 import java.io.*;
 
 public class SearchFromCSV {
 
-    public static String[] SearchbyID(String searchTerm) throws IOException {
-        Scanner db = new Scanner(new File("D:\\Data II\\New folder (4)\\"
-                + "NetBeansProjects\\IDGenerators\\src\\IDGenerate\\Student.csv"));
-        String data[] = new String[13];
+    public static String[] SearchByID(String searchTerm) throws IOException {
+        Scanner db = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\IDGenerator\\Raw Java\\Student.csv"));
+        String[] data = new String[13];
         while (db.hasNextLine()) {
             String line = db.nextLine();
             if (line.contains(searchTerm)) {
@@ -33,12 +32,12 @@ public class SearchFromCSV {
 //                + "Contact: %s\n"
 //                + "Mail: %s\n"
 //                + "Gender: %s\n"
-//                + "Catagory: %s\n"
+//                + "Category: %s\n"
 //                + "Department: %s\n"
 //                + "Semester: %s\n"
 //                + "Slot: %s\n"
 //                + "Year: %s\n"
-//                + "GSUIT: %s\n", data[0], data[1], data[2], data[3], data[4], data[5]
+//                + "G-SUIT: %s\n", data[0], data[1], data[2], data[3], data[4], data[5]
 //                , data[6], data[7], data[8], data[9], data[10], data[11], data[12]);
 //        return data;
 //    }

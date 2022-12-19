@@ -1,9 +1,9 @@
 package IDGenerate;
 
 /**
- *
  * @author Tanvir Anindo 12:14:39 AM Mar 10, 2020
  */
+
 public class SeatCapacity {
 
     static int counts = Database.totalCount, total = 1;

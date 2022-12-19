@@ -6,21 +6,19 @@ import java.util.Scanner;
 import java.util.Calendar;
 
 /**
- *
  * @author Tanvir Anindo 12:14:39 AM Mar 10, 2020
  */
 public class Student {
 
     Scanner input = new Scanner(System.in);
 
-    public String id, year, gsuit, name, fathername, mothername, mail,
-            mobile, gender, catagory, slot, semester, department, zero = "0";
+    public String id, year, gSuit, name, fatherName, motherName, mail, mobile, gender, category, slot, semester, department, zero = "0";
 
-    private int catagoryInput, semesterInput, departmentInput, slotInput, genderInput, rollInput, yearInput;
+    private int categoryInput, semesterInput, departmentInput, slotInput, genderInput, rollInput, yearInput;
 
     private static int count = 1, checks = 1;
 
-//    public void setInformationManually(){
+    //    public void setInformationManually(){
 //        System.out.print("Enter Your Name:  ");
 //        name = input.nextLine().toUpperCase();
 //        System.out.print("Year: (1) 2020 | (2) 2019 | (3) 2018 | (4) 2017\nEnter Year:  ");
@@ -33,14 +31,15 @@ public class Student {
 //        departmentInput = input.nextInt();
 //        rollInput = checks++;
 //    }
+
     public void setInformationAutomatically(String[] s) {
         name = s[0].toUpperCase();
-        fathername = s[1].toUpperCase();
-        mothername = s[2].toUpperCase();
+        fatherName = s[1].toUpperCase();
+        motherName = s[2].toUpperCase();
         mobile = s[3];
         mail = s[4].toLowerCase();
         genderInput = Integer.parseInt(s[5]);
-        catagoryInput = Integer.parseInt(s[6]);
+        categoryInput = Integer.parseInt(s[6]);
         departmentInput = Integer.parseInt(s[7]);
         semesterInput = Integer.parseInt(s[8]);
         slotInput = Integer.parseInt(s[9]);
@@ -49,13 +48,13 @@ public class Student {
         rollInput = checks++;
     }
 
-    public void catagory() {
-        switch (catagoryInput) {
+    public void category() {
+        switch (categoryInput) {
             case 1:
-                catagory = "National";
+                category = "National";
                 break;
             case 2:
-                catagory = "International";
+                category = "International";
                 break;
         }
     }
@@ -85,6 +84,9 @@ public class Student {
             case 3:
                 year = Integer.toString((Calendar.getInstance().get(Calendar.YEAR) % 100) + 1);
                 break;
+//            case 4:
+//                year = Integer.toString((Calendar.getInstance().get(Calendar.YEAR) % 100) + 2);
+//                break;
         }
     }
 
@@ -102,14 +104,14 @@ public class Student {
         }
     }
 
-//    public void roll(String [] args){
+    //    public void roll(String [] args){
 //        SearchFromCSV.main(year);
 //    }
     public void setID() {
-        Integer.toString(semesterInput);
-        Integer.toString(slotInput);
-        Integer.toString(departmentInput);
-        Integer.toString(rollInput);
+//        Integer.toString(semesterInput);
+//        Integer.toString(slotInput);
+//        Integer.toString(departmentInput);
+//        Integer.toString(rollInput);
         id = year + semesterInput + slotInput + departmentInput + rollInput;
         if (id.length() == 6) {
             id = year + semesterInput + slotInput + departmentInput + zero + zero + rollInput;
@@ -120,7 +122,7 @@ public class Student {
     }
 
     public void mail() {
-        gsuit = name.replace(" ", ".").toLowerCase() + "@g.bracu.ac.bd";
+        gSuit = name.replace(" ", ".").toLowerCase() + "@g.bracu.ac.bd";
     }
 
     public void slot() {
@@ -167,9 +169,8 @@ public class Student {
     }
 
     public String[] Search(String searchTerm) throws IOException {
-        Scanner db = new Scanner(new File("D:\\Data II\\New folder (4)\\"
-                + "NetBeansProjects\\IDGenerators\\src\\IDGenerate\\Student.csv"));
-        String data[] = new String[12];
+        Scanner db = new Scanner(new File("C:\\Users\\User\\Documents\\GitHub\\IDGenerator\\Raw Java\\Student.csv"));
+        String[] data = new String[12];
         while (db.hasNextLine()) {
             String line = db.nextLine();
             if (line.contains(searchTerm)) {
@@ -183,8 +184,8 @@ public class Student {
     public void printInformation() {
         System.out.println("\n(" + count + ")");
         System.out.println("Name: " + name);
-        System.out.println("Father's Name: " + fathername);
-        System.out.println("Mother's Name: " + mothername);
+        System.out.println("Father's Name: " + fatherName);
+        System.out.println("Mother's Name: " + motherName);
         System.out.println("Contact: " + mobile);
         System.out.println("Mail: " + mail);
         System.out.println("Gender: " + gender);
@@ -192,7 +193,7 @@ public class Student {
         System.out.println("Department: " + department);
         System.out.println("Semester: " + semester + " " + year);
         System.out.println("Slot: " + slotInput);
-        System.out.println("G-SUIT: " + gsuit);
+        System.out.println("G-SUIT: " + gSuit);
         count++;
     }
 }
